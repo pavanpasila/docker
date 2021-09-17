@@ -4,7 +4,7 @@ Pipeline {
   stages {
     stage ('stage SCM') {
       steps {
-       git branch: 'main', credentialsId: 'pavan_github', url: 'https://github.com/pavanpasila/docker.git'
+       git branch: 'main', url: 'https://github.com/pavanpasila/docker.git'
       } 
     }
    stage('stage maven') {
