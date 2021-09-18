@@ -18,7 +18,7 @@ pipeline {
      sh 'docker images' 
     }
    }
-   stages ('push images to jfrog') {
+   stage ('push images to jfrog') {
     steps {
       sh 'docker login  $JFROG_URL -u $JFROG_USER -p $JFROG_PWD'    
     }
