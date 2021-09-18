@@ -14,14 +14,14 @@ pipeline {
    }
    stage('buid docker image') {
     steps {
-     sh 'docker build -t hello-world .'
+     sh 'docker build -t hello-world:$BUILD_NUMBER .'
      sh 'docker images' 
     }
    }
    stage ('push images to jfrog') {
     steps {
       sh 'docker login  $JFROG_URL -u $JFROG_USER -p $JFROG_PWD'
-      sh 'docker tag hello-world $JFROG_URI/docker-repo/hello-world'
+      sh 'docker tag hello-world:$BUILD_NUMBER $JFROG_URI/docker-repo/hello-world'
     }
    }
   }
