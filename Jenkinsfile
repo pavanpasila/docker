@@ -25,5 +25,5 @@ pipeline {
       sh 'docker push $JFROG_URI/docker-repo/hello-world/$BUILD_NUMBER'
     }
    }
-  }
+   }
 }
