@@ -22,6 +22,7 @@ pipeline {
     steps {
       sh 'docker login  $JFROG_URL -u $JFROG_USER -p $JFROG_PWD'
       sh 'docker tag hello-world:$BUILD_NUMBER $JFROG_URI/docker-repo/hello-world'
+      sh 'docker push $JFROG_URI/docker-repo/hello-world'
     }
    }
   }
