@@ -12,9 +12,15 @@ pipeline {
      sh 'mvn clean install'
     }
    }
-   stage('buid docker') {
+   stage('buid docker image') {
     steps {
      sh 'docker build -t hello-world .'
+     sh 'docker images' 
+    }
+   }
+   stages ('push images to jfrog') {
+    steps {
+      sh 'docker login  $JFROG_URL -u $JFROG_USER -p $JFROG_PWD'    
     }
    }
   }
