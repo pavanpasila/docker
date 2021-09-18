@@ -12,5 +12,10 @@ pipeline {
      sh 'mvn clean install'
     }
    }
+   stage('buid docker') {
+    steps {
+     sh 'docker build -t hello-world .'
+    }
+   }
   }
 }
