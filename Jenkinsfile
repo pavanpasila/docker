@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage ('stage SCM') {
       steps {
-       git branch: 'main', url: 'https://github.com/pavanpasila/docker.git'
+       git branch: 'master', url: 'https://github.com/pavanpasila/docker-hello-world-spring-boot.git'
       } 
     }
    stage('stage maven') {
