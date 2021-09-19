@@ -29,10 +29,10 @@ pipeline {
     steps {
      script {
       def remote = [:]
-       remote.name = $APP_NAME
-       remote.host = $APP_IP
-       remote.user = $APP_USER
-       remote.password = $APP_PWD
+      remote.name = "${APP_NAME}"
+      remote.host = "${APP_IP}"
+     remote.user = "${APP_USER}"
+    remote.password = "${APP_PWD}"
        remote.allowAnyHosts = true
       sshCommand remote: remote, command: "docker login  $JFROG_URL -u $JFROG_USER -p $JFROG_PWD" 
       sshCommand remote: remote, command: "docker pull $JFROG_URI/docker-repo/hello-world/$BUILD_NUMBER"
